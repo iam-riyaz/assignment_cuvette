@@ -8,6 +8,7 @@ const UserSchema = new mongoose.Schema(
     password: { type: String },
     ipData: {type:Object, default:{}},
     phone: { type: Number },
+    idVerified: { type: Boolean, default: false}
   },
   { timestamps: true }
 );
