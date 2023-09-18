@@ -1,12 +1,16 @@
 import dotenv from "dotenv";
 import express from "express";
 import { connectDB } from "./database/db.js";
-import { Otp_sending } from "./utils/otp-service.js";
 import { register } from "./controller/user.controller.js";
+import { verifyOtp } from "./controller/verifyOtp.controller.js";
+import * as validation from "./middleware/emailAndPhone.validation.js"
+import { errors } from "celebrate";
 
 const app = express();
 dotenv.config();
 app.use(express.json());
+app.use(errors())
+
 
 // ROOT ROUTE FOR TESTING
 app.get("/", async (req, res) => {
@@ -23,13 +27,7 @@ const PORT = process.env.PORT || 3000;
 app.post("/register", register);
 
 // VEERIFY USER EMAIL AND PHONE
-app.post("/verify/:id", async (req, res)=>{
-
-    const {id}=req.params
-    const {enteredOTP}= req.body
-
-
-})
+app.post("/verify/:id", verifyOtp )
 
 
 // SERVER RUNNING IN PORT WITH MONGODB CONNECTION
@@ -38,3 +36,4 @@ connectDB().then(() => {
     console.log(`listening on ${PORT}`);
   });
 });
+
