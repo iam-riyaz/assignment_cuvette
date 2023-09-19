@@ -5,7 +5,7 @@ const mobileValidator = Joi.string()
   .pattern(/\d{10}$/);
 
 export const emailAndPhone = celebrate({
-  [Segments.BODY]: Joi.object().keys({
+  [Segments.BODY]: Joi.object({
     email: Joi.string().email().required(),
     phone: mobileValidator.required(),
   }),
