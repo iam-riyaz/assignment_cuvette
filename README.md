@@ -34,7 +34,7 @@ npm install
    {baseurl}/register
    ```
   2. **request body**
-    ```js
+    ```json
     {
   "firstName": "value",
   "lastName": "value",
