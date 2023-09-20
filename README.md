@@ -22,7 +22,7 @@
 npm install
 ```
 
-2.Create **.env** file in root of Project referring to *.env.example* file
+2. Create **.env** file in root of Project referring to *.env.example* file
 
 3. Run the Application
    ```js
