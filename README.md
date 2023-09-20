@@ -50,10 +50,10 @@ npm install
      ```
   2. **request  body**
      ```{
-     "enteredOTP:"value"
+     "enteredOTP:"value",
      "hashedOTP": "value",
      "lastName": "value",
      "email": "value",
      "password":"value",
-     "phone":"value"
-     "ipData:"value"
+     "phone":"value",
+     "ipData:"value",
