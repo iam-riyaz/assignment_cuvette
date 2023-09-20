@@ -21,16 +21,14 @@
 ```js
 npm install
 ```
-
 2.Create **.env** file in root of Project referring to **.env.example** file
-
 3.Run the Application
    ```js
    npm start
    ```
 
    # Register and send OTP
-    - **endpoint**
+   **endpoint**
       ```js{baseurl}/register
       ```
       - **request body**
