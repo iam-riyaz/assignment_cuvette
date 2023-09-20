@@ -8,6 +8,7 @@
 
 **Features**
 
+
 -User car register with their details (ex. name,email,phone,password )
 
 -User will receive an OTP to their provided email/phone
