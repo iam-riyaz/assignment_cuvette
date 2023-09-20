@@ -17,7 +17,7 @@
 
 # To Run the Project
 
-```js
+1.```js
 npm install
 ```
 
