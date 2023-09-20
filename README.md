@@ -34,13 +34,11 @@ npm install
    {baseurl}/register
    ```
   2. **request body**
-    ```
-    "firstName": "value",
+    ```"firstName": "value",
     "lastName": "value",
     "email": "value",
     "password":"value",
-    "phone":"value"
-     ```
+    "phone":"value"```
 
 
    *this will send OTP you your email/phone and respond with user data along with hashedOTP and IPaddress data frontend will save the userData and hashedOTP for 
