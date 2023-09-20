@@ -15,10 +15,24 @@
 
 -After verifying the OTP User will register to Database
 
-# To Run the Project
+# To Start the Project
 
-1. Install all the dependencies 
+1.Install all the dependencies 
 ```js
 npm install
 ```
+
+2.Create **.env** file in root of Project referring to *.env.example* file
+
+3. Run the Application
+   ```js
+   npm start
+   ```
+
+   # Register and send OTP
+    - **endpoint**
+      ```{baseurl}/register
+      ```
+      - **request body**
+      - ``` ```
 
