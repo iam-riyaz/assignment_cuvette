@@ -15,3 +15,9 @@
 
 -After verifying the OTP User will register to Database
 
+# To Run the Project
+
+```js
+npm install
+```
+
