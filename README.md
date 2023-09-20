@@ -17,7 +17,8 @@
 
 # To Run the Project
 
-1.```js
+1. Install all the dependencies 
+```js
 npm install
 ```
 
