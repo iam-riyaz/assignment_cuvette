@@ -8,7 +8,7 @@
 
 **Features**
 
-User car register with their details (ex. name,email,phone,password )
-User will receive an OTP to their provided email/phone
-After verifying the OTP User will register to Database
--
+-User car register with their details (ex. name,email,phone,password )
+-User will receive an OTP to their provided email/phone
+-After verifying the OTP User will register to Database
+
