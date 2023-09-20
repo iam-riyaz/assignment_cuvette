@@ -53,6 +53,7 @@ npm install
      ```{
      "enteredOTP:"value",
      "hashedOTP": "value",
+     "firstName":"value",
      "lastName": "value",
      "email": "value",
      "password":"value",
