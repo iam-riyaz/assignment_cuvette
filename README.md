@@ -34,16 +34,17 @@ npm install
    {baseurl}/register
    ```
   2. **request body**
-    ```{
+    ```
     "firstName": "value",
     "lastName": "value",
     "email": "value",
     "password":"value",
     "phone":"value"
+     ```
 
 
-
- *this will send OTP you your email/phone and respond with user data along with hashedOTP and IPaddress data frontend will save the userData and hashedOTP for verifying otp and send this data to request body of "{baserurl}/verify" and register after successfully verification*.
+   *this will send OTP you your email/phone and respond with user data along with hashedOTP and IPaddress data frontend will save the userData and hashedOTP for 
+   verifying otp and send this data to request body of "{baserurl}/verify" and register after successfully verification*.
 
   # Verify OTP- method(POST)
   1. **endpoint**
