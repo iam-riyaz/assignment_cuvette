@@ -53,9 +53,9 @@ npm install
      ```{
      "enteredOTP:"value"
      "hashedOTP": "value",
-  "lastName": "value",
-  "email": "value",
-   "password":"value",
-  "phone":"value"
-  "ipData:"value"
+     "lastName": "value",
+     "email": "value",
+     "password":"value",
+     "phone":"value"
+     "ipData:"value"
      }
