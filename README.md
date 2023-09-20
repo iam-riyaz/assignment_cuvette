@@ -13,6 +13,8 @@
 
 -User will receive an OTP to their provided email/phone
 
+-Please check Spam mail for the OTP, as It might go to the spam folder in gmail.
+
 -After verifying the OTP User will register to Database
 
 # To Start the Project
