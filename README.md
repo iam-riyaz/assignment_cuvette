@@ -29,9 +29,18 @@ npm install
    ```
 
    # Register and send OTP
-   **endpoint**
-      ```js{baseurl}/register
-      ```
-      - **request body**
-      - ``` ```
+  1. **endpoint**
+   ```js
+   {baseurl}/register
+   ```
+  2. **request body**
+    ```js
+    {
+  "firstName": "value",
+  "lastName": "value",
+  "email": "value",
+   "password":"value",
+  "phone":"value"
+  }
+    ```
 
