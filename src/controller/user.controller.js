@@ -4,38 +4,46 @@ import ipInfo from "ipInfo";
 import { User } from "../model/user.js";
 import { Otp_sending } from "../utils/otp-service.js";
 
-
-// REGISTER
+// REGISTER - send hased data in response and send OTP to the email/phone 
 export const register = async (req, res) => {
   try {
-    
     const { firstName, lastName, email, phone, password } = req.body;
 
     const salt = await bcrypt.genSalt();
     const passwordHash = await bcrypt.hash(password, salt);
-    const sentOTP= Otp_sending(email)
-   
+    const sentOTP = Otp_sending(email);
 
-    // GENERATE IP ADDRESS BASED DATA AND NEW USER CREATION METHOD
+    // GENERATE IP ADDRESS BASED DATA and SENDING OTP with HASHED PASSWORD and OTHER DATA TO USER
     ipInfo()
       .then(async (ipData) => {
-        const newUser = new User({
+        const hashedOTP = await bcrypt.hash(sentOTP, salt);
+        const savedUser = {
           firstName,
           lastName,
           email,
           phone,
-          password: passwordHash,
           ipData,
-        });
+          password: passwordHash,
+        };
 
-        const savedUser = await newUser.save();
-       
-        const hashedOTP= await bcrypt.hash(sentOTP,salt)
-
-        res.status(201).send({ user:savedUser,hashedOTP });
+        res
+          .status(200)
+          .send({
+            status: "success",
+            message: "OTP sent to email/phone",
+            userData: savedUser,
+            hashedOTP,
+          });
       })
       .catch((err) => {
-        res.status(404).send("message" + err.message);
+        return res
+          .status(404)
+          .send({
+            status: "failure",
+            message: "Error sending OTP to email/phone",
+          });
       });
-  } catch (err) {}
+  } catch (err) {
+    res.status(404).send({ status: "failure", message: err.message });
+  }
 };

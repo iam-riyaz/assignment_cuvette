@@ -3,13 +3,17 @@ import express from "express";
 import { connectDB } from "./database/db.js";
 import { register } from "./controller/user.controller.js";
 import { verifyOtp } from "./controller/verifyOtp.controller.js";
-import * as validation from "./middleware/emailAndPhone.validation.js"
+import  {validation} from "./middleware/validation.js"
 import { errors } from "celebrate";
 
 const app = express();
 dotenv.config();
 app.use(express.json());
+
 app.use(errors())
+
+
+
 
 
 // ROOT ROUTE FOR TESTING
@@ -24,10 +28,10 @@ app.get("/", async (req, res) => {
 const PORT = process.env.PORT || 3000;
 
 // REGISTER NEW USER
-app.post("/register", register);
+app.post("/register", validation, register);
 
 // VEERIFY USER EMAIL AND PHONE
-app.post("/verify/:id", verifyOtp )
+app.post("/verify", verifyOtp )
 
 
 // SERVER RUNNING IN PORT WITH MONGODB CONNECTION

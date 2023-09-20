@@ -1,35 +1,42 @@
-import bcrypt from 'bcrypt';
-import { User } from '../model/user.js';
+import bcrypt from "bcrypt";
+import { User } from "../model/user.js";
 
-export const verifyOtp= async(req,res)=>{
-    
-    try{
+// VERIFY- verify the otp and save user data to the database (registration)
+export const verifyOtp = async (req, res) => {
+  try {
+    const {
+      enteredOTP,
+      hashedOTP,
+      firstName,
+      lastName,
+      email,
+      phone,
+      ipData,
+      password,
+    } = req.body;
 
-    const {id}=req.params
-    const {enteredOTP,hashedOTP}= req.body
+    const isOtpMatched = await bcrypt.compare(enteredOTP, hashedOTP);
+    if (isOtpMatched) {
+      const newUser = new User({
+        firstName,
+        lastName,
+        email,
+        phone,
+        password,
+        ipData,
+      });
 
-    const isOtpMatched= await bcrypt.compare(enteredOTP,hashedOTP)
-    if(isOtpMatched){
+      const savedUser = await newUser.save();
 
-        const user= await User.findByIdAndUpdate({_id:id},{$set:{isVerified:true}},{new:true})
-        if(!user){
-            res.status(404).send({message: 'User not found'})
-        }
-      const updatedUser= await user.save()
-        res.status(200).send({isOTPVerified:true, updatedUser})
-
+      res.status(201).send({
+        status: "success",
+        message: "OTP verified and user registered successfully",
+        registeredUser:savedUser
+      });
+    } else {
+      res.status(404).send({ status: "failure", message: "OTP is not valid" });
     }
-
-
-
-
-
-    }
-    catch(err){
-
-        res.status(500).send(err.message)
-
-    }
-
-
-}
+  } catch (err) {
+    res.status(500).send({ status: "faliure", message: err.message });
+  }
+};

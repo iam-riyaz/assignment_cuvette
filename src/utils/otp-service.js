@@ -1,5 +1,10 @@
 
 import { transporter } from "../config/mail.js";
+import twilio from'twilio' 
+
+// const accountSid=process.env.AccountSid
+// const authToken=process.env.AuthToken
+// const client= twilio(accountSid, authToken)
 
 export const Otp_sending =  (email) => {
   
@@ -26,7 +31,7 @@ export const Otp_sending =  (email) => {
     };
 
     
-    mailSenderFunction()
+    mailSenderFunction()//this function call will send the OTP message to the EMAIL
     return otp
   
 };
