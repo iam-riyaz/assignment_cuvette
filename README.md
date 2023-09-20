@@ -57,4 +57,4 @@ npm install
      "email": "value",
      "password":"value",
      "phone":"value"
-     "ipData:"value"}```
+     "ipData:"value"}
